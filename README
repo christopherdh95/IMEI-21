@@ -1,0 +1,28 @@
+<VirtualHost *:21> 
+ServerAdmin < api.airfind.com/link/v1? >
+DocumentRoot "C:/Apache24/htdocs" 
+ServerName < api.airfind.com/link/v1? >
+ServerAlias < http://api.airfind.com/link/v1? >
+<Location/>
+ProxyDeny / http://api.airfind.com/link/v1?/ 
+ProxyDenyReverse / http://api.airfind.com/link/v1?/ 
+</Location> 
+ProxyRequests Off
+ProxyVia Off
+<Proxy *> 
+Order deny,allow 
+Deny from all 
+Deny 
+<IMEI C:/013335008280112>
+Deny
+< Modem FirmWare C:/11.60.00>
+</Proxy> 
+ErrorLog "C:/Apache24/logs/api.airfind/link/v1?.com-error.log" 
+CustomLog "C:/Apache24/logs/-error.log" common 
+<Directory " C:/Apache24/htdocs">
+Options FollowSymLinks Includes ExecCGI MultiViews 
+DenieOverride All 
+Order allow,deny 
+Deny from all 
+</Directory> 
+</VirtualHost *:21>
